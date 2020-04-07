@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/layer/1.8.5/skin/layer.css" rel="stylesheet">
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/layer/1.8.5/layer.min.js"></script>
+<p id="a">123</p>
+<form>
+    <p>用户名: <input type="text" name="name"/></p>
+    <p>密码: <input type="text" name="password"/></p>
+    <input type="submit" value="注册" id="register"/>
+    <input type="submit" value="登录" id="login"/>
+    <input type="button" value="查询全部"/>
+</form>
+<script>
+
+    $("input#login").click(function () {
+        $.ajax({
+            url: '/login',
+            type: 'post',
+            data: {
+                name: $("input[name='name']").val(),
+                password: $("input[name='password']").val(),
+            },
+            success: function (res) {
+                console.log(res);
+                if (res) {
+                    window.location.href = 'http://localhost:8880/index';;
+                } else {
+                    layer.msg("登录失败");
+                }
+            }
+        })
+        return false;
+    });
+
+    $("input#register").click(function () {
+        $.ajax({
+            url: '/register',
+            type: 'post',
+            data: {
+                name: $("input[name='name']").val(),
+                password: $("input[name='password']").val(),
+            },
+            success: function (res) {
+                console.log(res);
+                if (res.result) {
+                    layer.msg('注册成功');
+                } else {
+                    layer.msg("注册失败")
+                }
+            }
+        })
+        return false;
+        });
+        $("input[type='button']").click(function () {
+            $.ajax({
+                dataType : "json",
+                url: '/query',
+                type: 'post',
+                success: function (res) {
+                    document.getElementById("a").innerHTML = res;
+                }
+            })
+            return false;
+        });
+
+
+
+
+</script>
+</body>
+</html>

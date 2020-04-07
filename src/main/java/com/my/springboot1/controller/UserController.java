@@ -45,5 +45,8 @@ public class UserController {
           return userService.login(user);
     }
 
-
+    @GetMapping("/index")
+    public String index() {
+        return "index";
+    }
 }

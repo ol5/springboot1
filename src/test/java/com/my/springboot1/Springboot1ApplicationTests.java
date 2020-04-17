@@ -18,7 +18,7 @@ class Springboot1ApplicationTests {
         User user = new User();
 //        user.setName("王元法");
 //        user.setPassword("123456");
-//        userMapper.insert(user);
+//        userMapper.insert(user);11
         List<User> query = userMapper.query();
         System.out.println("全部用户 ： " + JSON.toJSONString(query) );
         user.setId(1);

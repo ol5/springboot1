@@ -10,4 +10,5 @@ public interface UserMapper {
     int insert(User user);
     List<User> query();
     User isValid(User user);
+    User isRepeat(User user);
 }

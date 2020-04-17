@@ -28,4 +28,10 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         return userMapper.isValid(user);
     }
+
+    @Override
+    public User isRepeat(User user) {
+        return userMapper.isRepeat(user);
+    }
+
 }

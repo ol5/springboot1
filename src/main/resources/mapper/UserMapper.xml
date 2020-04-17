@@ -40,4 +40,18 @@
             </if>
         </where>
     </select>
+    <select id="isRepeat" resultType="user">
+        SELECT
+        name ,
+        password
+        From user
+        <where>
+            <if test="name != null">
+                AND name = #{name}
+            </if>
+            <if test="password != null">
+                AND password = #{password}
+            </if>
+        </where>
+    </select>
 </mapper>

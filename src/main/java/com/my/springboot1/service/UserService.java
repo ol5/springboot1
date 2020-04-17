@@ -8,4 +8,5 @@ public interface UserService {
     Boolean register(User user);
     List<User> query();
     User login(User user);
+    User isRepeat(User user);
 }

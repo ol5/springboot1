@@ -49,4 +49,8 @@ public class UserController {
     public String index() {
         return "index";
     }
+    @GetMapping("/layuiRegister")
+    public String layuiRegister() {
+        return "layui-register";
+    }
 }
